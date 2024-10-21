@@ -13,6 +13,35 @@
 # a tty.
 
 
+# M* Apple Silicon
+if [ -x "/opt/homebrew/bin/brew" ]; then
+
+  OVERRIDES=(
+      "/opt/homebrew/bin"
+      "/opt/homebrew/sbin"
+      "/opt/homebrew/opt/grep/libexec/gnubin"
+      "/opt/homebrew/opt/curl/bin"
+    )
+
+# Intel Mac
+elif [ -x "/usr/local/bin/brew" ]; then
+  OVERRIDES=(
+      "/usr/local/bin"
+      "/usr/local/sbin"
+      "/usr/local/opt/grep/libexec/gnubin"
+      "/usr/local/opt/curl/bin"
+    )
+else
+  OVERRIDES=()
+fi
+
+for P in "${OVERRIDES[@]}"; do
+  if [ -d "${P}" ]; then
+    export PATH="${P}:${PATH}"
+  fi
+done
+
+
 # Must be defined in 'zshenv', which is sourced first.
 function init-work() {
 
