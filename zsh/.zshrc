@@ -40,13 +40,13 @@ unsetopt CHECK_JOBS       # Don't report on jobs when shell exit.
 
 # PAGER, EDITOR, VISUAL, etc.
 export PAGER="less"
-if [[ -x "$(which nvim)" ]]; then
+if [ -x "$(which nvim)" ]; then
     export EDITOR="nvim"
     export VISUAL="nvim -R"
-elif [[ -x "$(which vim)" ]]; then
+elif [ -x "$(which vim)" ]; then
     export EDITOR="vim"
     export VISUAL="vim"
-elif [[ -x "$(which vi)" ]]; then
+elif [ -x "$(which vi)" ]; then
     export EDITOR="vi"
     export VISUAL="vi -R"
 else
@@ -57,7 +57,7 @@ fi
 # Smart URLs.
 # See: https://github.com/sorin-ionescu/prezto/blob/5566a9c7927ed1ee166e92f8ecb72aa7a2d0ce09/modules/environment/init.zsh#L17
 autoload -Uz is-at-least
-if [[ ${ZSH_VERSION} != 5.1.1 && ${TERM} != "dumb" ]]; then
+if [ "${ZSH_VERSION}" != 5.1.1 ] && [ "${TERM}" != "dumb" ]; then
   if is-at-least 5.2; then
     autoload -Uz bracketed-paste-url-magic
     zle -N bracketed-paste bracketed-paste-url-magic
@@ -73,11 +73,11 @@ fi
 
 
 # Put work specific configurations in '.work_zshrc'
-init-work ${(%):-%N}
+init-work "${(%):-%N}"
 
 
 # Run Prezto after setting up environment so that it can access global
 # variables like '$EDITOR'.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+if [ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi

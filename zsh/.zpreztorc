@@ -12,7 +12,7 @@
 zstyle ':prezto:*:*' color 'yes'
 
 # Add additional directories to load prezto modules from
-zstyle ':prezto:load' pmodule-dirs $(dirname ${0:A})/../prezto-modules
+zstyle ':prezto:load' pmodule-dirs "$(dirname ${0:A})/../prezto-modules"
 
 # Set the Prezto modules to load (browse modules). Order is significant.
 zstyle ':prezto:load' pmodule \
@@ -111,4 +111,4 @@ zstyle ':prezto:module:utility' safe-ops 'yes'
 
 
 # Put work specific configurations in '.work_zpreztorc'
-init-work ${(%):-%N}
+init-work "${(%):-%N}"

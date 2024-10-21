@@ -16,4 +16,4 @@
 
 
 # Put work specific configurations in '.work_zprofile'
-init-work ${(%):-%N}
+init-work "${(%):-%N}"

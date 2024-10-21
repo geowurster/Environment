@@ -53,14 +53,14 @@ function init-work() {
     # The ${(%):-%N} points to the current startup file and is used to find
     # the partner work-specific file.
 
-    if [[ $# -ne 1 && -o INTERACTIVE && -t 2 ]]; then
-        echo "WARNING: Skipped sourcing a work config file: $@" >&2
+    if [ $# -ne 1 ] && [ -o INTERACTIVE ] && [ -t 2 ]; then
+        echo "WARNING: Skipped sourcing a work config file: $*" >&2
         return 1
     fi
 
     # Translate a path like ~/.zshenv to ~/.work_zshenv
     WORK_DOTFILE="${HOME}/.work_$(echo $(basename $1) | sed 's/^.//')"
-    if [[ -f "${WORK_DOTFILE}" ]]; then
+    if [ -f "${WORK_DOTFILE}" ]; then
         source "${WORK_DOTFILE}"
     fi
 
@@ -68,4 +68,4 @@ function init-work() {
 
 
 # Put work specific configurations in '.work_zshenv'
-init-work ${(%):-%N}
+init-work "${(%):-%N}"
