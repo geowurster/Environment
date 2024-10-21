@@ -9,5 +9,6 @@ stow \
   --target="${HOME}" \
   --restow \
   git/ \
+  neovim/ \
   python/ \
   zsh/
