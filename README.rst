@@ -9,7 +9,15 @@ Mostly shell configurations for `zsh <http://zsh.sourceforge.net>`_ with
 Setup
 *****
 
-Install `zsh <http://zsh.sourceforge.net/>`_ first.
+Install `zsh <http://zsh.sourceforge.net/>`_ and `stow <https://www.gnu.org/software/stow/>`_.
+Both are typically available in package managers like:
+
+.. code-block:: console
+
+    $ brew install stow zsh
+    $ sudo apt-get install stow zsh
+
+Install config files in this repo:
 
 .. code-block:: console
 
@@ -17,7 +25,7 @@ Install `zsh <http://zsh.sourceforge.net/>`_ first.
     $ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
     $ git clone git@github.com:geowurster/Environment.git
     $ cd Environment
-    $ zsh link-dotfiles.sh
+    $ ./link-dotfiles.sh
 
 Launch a new terminal session.
 

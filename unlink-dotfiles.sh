@@ -7,7 +7,7 @@ set -eu -o pipefail
 stow \
   --verbose \
   --target="${HOME}" \
-  --restow \
+  --delete \
   git/ \
   python/ \
   zsh/
