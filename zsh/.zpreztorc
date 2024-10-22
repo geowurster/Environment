@@ -23,7 +23,6 @@ zstyle ':prezto:load' pmodule \
     'completion' \
     'prompt' \
     'my-homebrew' \
-    'my-gdal' \
     'my-git' \
     'my-history' \
     'my-python' \
